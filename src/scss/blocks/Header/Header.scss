@@ -1,0 +1,325 @@
+.header {
+  position: relative;
+
+  height: 100vh;
+
+  &__content {
+    height: 100%;
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    @extend %sfuiDisplay-400;
+  }
+
+  &__box {
+    position: relative;
+
+    & .button {
+      max-width: 240px;
+    }
+  }
+
+  &__subtitle-text {
+    position: relative;
+
+    display: inline-block;
+    font-weight: 400;
+    font-size: 1.2rem;
+    letter-spacing: 8px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -75px;
+
+      width: 65px;
+      height: 2px;
+
+      background-color: #ffffff;
+      border-radius: 2px;
+
+      transform: translateY(-50%);
+    }
+  }
+
+  &__title-box {
+    margin: 20px 0 30px 0;
+  }
+
+  &__title {
+    display: block;
+    font-size: 3.8rem;
+    background: url("../../../assets/images/bg-font.jpg") no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+  }
+
+  &__arrow-down {
+    position: absolute;
+    bottom: -100px;
+
+    width: 40px;
+    height: 40px;
+
+    cursor: pointer;
+    animation: scroll ease 2s infinite;
+  }
+
+  &__image-box {
+    position: relative;
+    width: 20em;
+
+    &::before {
+      width: 100%;
+      height: 100%;
+      content: "";
+      position: absolute;
+      background-color: rgba(32, 32, 32, .4);
+      bottom: 0;
+      -webkit-filter: blur(15px);
+      filter: blur(15px);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    margin-right: -100px;
+    object-fit: contain;
+  }
+
+  &__social {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -90px;
+
+      width: 1px;
+      height: 70px;
+
+      background-color: $separateColor;
+
+      transform: translateX(-50%);
+    }
+
+    &::after {
+      content: "SOCIAL";
+      position: absolute;
+      right: -22px;
+      top: -155px;
+
+      @extend %oswald-400;
+      letter-spacing: 5px;
+
+      color: #888888;
+
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__social-item {
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+
+  .MuiSvgIcon-root {
+    &:hover {
+      fill: #999999;
+    }
+  }
+
+  &__copy {
+    position: absolute;
+    z-index: 1;
+    bottom: 100px;
+    right: 20px;
+
+    @extend %oswald-400;
+    font-size: 16px;
+
+    color: #dddddd;
+
+    transform: rotate(-13deg);
+  }
+
+  &__decor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    border-bottom: 1px solid $separateColor;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(15px);
+  }
+}
+
+@media all and (max-width: 1700px) {
+  .header {
+    &__copy {
+      bottom: 60px;
+      right: 120px;
+    }
+  }
+}
+
+@media all and (max-width: 1440px) {
+  .header {
+    .container {
+      max-width: 900px;
+    }
+
+    &__title-box {
+      margin: 20px 0;
+    }
+
+    &__title {
+      margin: 0;
+      font-size: 54px;
+    }
+
+    &__copy {
+      bottom: 40px;
+    }
+  }
+}
+
+@media all and (max-width: 1340px) {
+  .header {
+    &__copy {
+      right: 30px;
+      bottom: 50px;
+    }
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .header {
+    .container {
+      max-width: 750px;
+    }
+
+    &__title {
+      font-size: 40px;
+    }
+
+    &__subtitle-text {
+      &::after {
+        display: none;
+      }
+    }
+
+    &__copy {
+      right: 20px;
+      bottom: 35px;
+    }
+
+    .button {
+      padding: 10px 0;
+    }
+
+    &__arrow-down {
+      bottom: -70px;
+    }
+  }
+}
+
+@media all and (max-width: 900px) {
+  .header {
+    &__social {
+      display: none;
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  .header {
+    .container {
+      max-width: 650px;
+    }
+
+    &__copy {
+      right: 15px;
+      bottom: 25px;
+
+      font-size: 12px;
+    }
+
+    &__title {
+      font-size: 34px;
+    }
+
+    .button {
+      padding: 8px 0;
+
+      font-size: 16px;
+    }
+  }
+}
+
+@media all and (max-width: 610px) {
+  .header {
+    &__copy {
+      display: none;
+    }
+
+    &__subtitle-text {
+      font-size: 16px;
+    }
+
+    &__wrap {
+      margin: 0 auto;
+
+      max-width: 350px;
+    }
+
+    &__image-box {
+      display: none;
+    }
+
+    &__image {
+      display: none;
+    }
+  }
+}
+
+@media all and (max-width: 425px) {
+  .header {
+    &__wrap {
+      padding: 0 5px;
+    }
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__subtitle-text {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

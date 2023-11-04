@@ -1,0 +1,171 @@
+.menu {
+  position: fixed;
+  z-index: 4;
+  transform: translateX(600px);
+  right: 0;
+  top: 0;
+  width: 500px;
+  height: 100vh;
+  background: #191919;
+  padding: 65px 55px;
+
+  transition: transform 300ms linear;
+
+  &__active {
+    transform: translateX(0px);
+    transition: transform 300ms linear;
+  }
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  &__wrapper::-webkit-scrollbar {
+    width: 3px;
+    background-color: #f1f1f1;
+  }
+
+  &__wrapper::-webkit-scrollbar-thumb {
+    width: 3px;
+    background-color: #888888;
+  }
+
+  &__card {
+    &.active {
+      .menu__text {
+        opacity: 1;
+      }
+
+      .menu__link::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__link::after {
+    content: "\A";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: all 300ms linear;
+    cursor: pointer;
+  }
+
+  &__link:hover:after {
+    opacity: 1;
+  }
+
+  &__card:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &__link {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 200px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__close-button {
+    position: absolute;
+    z-index: 2;
+    top: 10px;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__close-icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__text {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    @extend %sfuiDisplay-700;
+    font-weight: 700;
+    font-size: 45px;
+    color: #fff;
+    transition: opacity 300ms linear;
+  }
+
+  &__card:hover &__text {
+    opacity: 1;
+    transition: all 300ms linear;
+  }
+
+  @media all and (max-width: 700px) {
+    width: 400px;
+    padding: 50px 45px;
+  }
+
+  @media all and (max-width: 500px) {
+    width: 300px;
+    padding: 30px 35px;
+
+    &__link {
+      margin-bottom: 15px;
+      height: 150px;
+    }
+
+    &__text {
+      font-size: 30px;
+    }
+
+    &__close-button {
+      width: 60px;
+      height: 60px;
+      top: 5px;
+    }
+  }
+
+  @media all and (max-width: 400px) {
+    width: 250px;
+    padding: 30px 35px;
+
+    &__link {
+      margin-bottom: 15px;
+      height: 130px;
+    }
+
+    &__text {
+      font-size: 26px;
+    }
+  }
+
+  @media all and (max-width: 345px) {
+    width: 225px;
+    padding: 30px 7px 30px 41px;
+
+    &__link {
+      margin-bottom: 15px;
+      height: 130px;
+    }
+
+    &__text {
+      font-size: 26px;
+    }
+  }
+}

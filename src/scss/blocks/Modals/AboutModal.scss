@@ -1,0 +1,325 @@
+.about-modal {
+  width: 100%;
+  height: 100%;
+  background-color: #2a2a2a;
+
+  &__title {
+    padding-top: 70px;
+    margin-bottom: 50px;
+
+    @extend %sfuiDisplay-400;
+    font-size: 3.2rem;
+
+    text-align: center;
+
+    background: url("../../../assets/images/bg-font.jpg") no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .about__list {
+    display: none;
+  }
+
+  &__skills {
+    display: flex;
+    align-items: center;
+    padding-bottom: 70px;
+  }
+
+  &__skill {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 25%;
+  }
+
+  &__progress {
+    position: relative;
+
+    margin-bottom: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 150px;
+    width: 150px;
+    height: 150px;
+
+    overflow: unset;
+
+    &::before {
+      content: "";
+      position: absolute;
+
+      width: 120%;
+      height: 120%;
+
+      background-color: $mainColor;
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      height: 100%;
+      width: 100%;
+
+      border: 6px solid #2a2a2a;
+      border-radius: 50%;
+    }
+
+    &.yellow {
+      .about-modal__progress-bar {
+        border-color: #fdba04;
+      }
+
+      .about-modal__progress-left {
+        .about-modal__progress-bar {
+          animation: secondLoading 0.64s linear 0.8s forwards;
+        }
+      }
+    }
+
+    &.blue {
+      .about-modal__progress-bar {
+        border-color: #377dff;
+      }
+
+      .about-modal__progress-left {
+        .about-modal__progress-bar {
+          animation: thirdLoading 0.24s linear 0.8s forwards;
+        }
+      }
+    }
+
+    &.red {
+      .about-modal__progress-bar {
+        border-color: #fe3e57;
+      }
+
+      .about-modal__progress-left {
+        .about-modal__progress-bar {
+          animation: fourthLoading 0.4s linear 0.8s forwards;
+        }
+      }
+    }
+
+    &.green {
+      .about-modal__progress-bar {
+        border-color: #00c9a7;
+      }
+
+      .about-modal__progress-left {
+        .about-modal__progress-bar {
+          animation: fifthLoading 0.48s linear 0.8s forwards;
+        }
+      }
+    }
+  }
+
+  &__progress-left,
+  &__progress-right {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+
+    width: 50%;
+    height: 100%;
+
+    overflow: hidden;
+  }
+
+  &__progress-left {
+    left: 0;
+
+    .about-modal__progress-bar {
+      left: 100%;
+
+      border-top-right-radius: 80px;
+      border-bottom-right-radius: 80px;
+      border-left: 0;
+
+      transform-origin: left;
+    }
+  }
+
+  &__progress-right {
+    right: 0;
+
+    .about-modal__progress-bar {
+      left: -100%;
+
+      border-top-left-radius: 80px;
+      border-bottom-left-radius: 80px;
+      border-right: 0;
+
+      transform-origin: right;
+      animation: firstLoading 0.8s linear forwards;
+    }
+  }
+
+  &__progress-bar {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-width: 6px;
+    border-style: solid;
+  }
+
+  &__progress-value {
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+
+    font-size: 1.5em;
+
+    background-color: $minorColor;
+    border-radius: 50%;
+  }
+
+  &__text {
+    font-size: 1.125em;
+  }
+
+  @keyframes firstLoading {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(180deg);
+    }
+  }
+
+  @keyframes secondLoading {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(144deg);
+    }
+  }
+
+  @keyframes thirdLoading {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(126deg);
+    }
+  }
+
+  @keyframes fourthLoading {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(126deg);
+    }
+  }
+
+  @keyframes fifthLoading {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(126deg);
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .about-modal {
+    .about__list {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, 350px);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-modal {
+    &__title {
+      padding-top: 50px;
+    }
+
+    &__skills {
+      padding-bottom: 0;
+
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, 350px);
+    }
+
+    &__skill {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .about-modal {
+    &__title {
+      padding-top: 30px;
+    }
+
+    .about__list {
+      grid-template-columns: repeat(2, 250px);
+    }
+
+    &__skills {
+      padding-bottom: 0;
+
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, 250px);
+    }
+
+    &__skill {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+@media (max-width: 570px) {
+  .about-modal {
+    .about__list {
+      grid-template-columns: repeat(1, 200px);
+    }
+
+    &__skills {
+      padding-bottom: 0;
+
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(1, 150px);
+    }
+
+    &__skill {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .about-modal {
+    margin-top: -50px;
+  }
+}

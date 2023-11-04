@@ -1,0 +1,40 @@
+.burger-menu {
+  &__button {
+    position: relative;
+
+    padding: 0;
+    margin-right: 10px;
+
+    width: 45px;
+    height: 45px;
+
+    background-color: #191919;
+    border: none;
+
+    cursor: pointer;
+
+    span {
+      position: absolute;
+      left: 9px;
+
+      width: 28px;
+      height: 2px;
+
+      background-color: #ffffff;
+
+      &:nth-child(1) {
+        top: 12px;
+      }
+
+      &:nth-child(2) {
+        top: 22px;
+      }
+
+      &:nth-child(3) {
+        top: 32px;
+
+        width: 20px;
+      }
+    }
+  }
+}

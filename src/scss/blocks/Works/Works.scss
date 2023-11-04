@@ -1,0 +1,240 @@
+@keyframes card-info-show {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes card-info-hide {
+  0% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-15px);
+    visibility: hidden;
+  }
+}
+
+.works {
+  position: relative;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: center;
+  padding-bottom: 200px;
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 700;
+    background-image: url(../../../assets/images/bg-font.jpg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 50px;
+    @extend %sfuiDisplay-400;
+  }
+
+  &__cards-container {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__card {
+    position: relative;
+    width: 350px;
+    height: 260px;
+  }
+
+  &__card-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: all 200ms linear;
+  }
+
+  &__card-image-opacity {
+    opacity: 0.3;
+    transition: all 200ms linear;
+  }
+
+  &__card-info {
+    position: absolute;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15px;
+  }
+
+  &__card-info-unactive {
+    visibility: hidden;
+    animation: card-info-hide 200ms linear;
+  }
+
+  &__card-info-active {
+    animation: card-info-show 200ms linear;
+  }
+
+  &__card-title {
+    font-size: 40px;
+    font-family: Berkshire Swash, cursive;
+    @extend %sfuiDisplay-400;
+  }
+
+  &__card-text {
+    font-family: Berkshire Swash, cursive;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 300;
+    @extend %sfuiDisplay-400;
+  }
+
+  &__card-button {
+    width: 200px;
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+    color: #fff;
+    padding: 10px 50px;
+    background: hsla(0, 0%, 100%, 0.35);
+    transition: background 200ms linear;
+    position: relative;
+    text-decoration: none;
+  }
+
+  &__card-button:hover {
+    background: hsla(0, 0%, 100%, 0.7);
+    transition: background 200ms linear;
+  }
+
+  &__card-button:after,
+  &__card-button:before {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    content: "";
+  }
+
+  &__card-button:after,
+  &__card-button:before {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    content: "";
+  }
+
+  &__card-button:after {
+    bottom: -5px;
+    height: 2px;
+  }
+
+  @media all and (max-width: 1150px) {
+    &__cards-container {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__card {
+      width: 330px;
+      height: 250px;
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    padding-bottom: 130px;
+
+    &__cards-container {
+      grid-template-columns: 1fr;
+    }
+
+    &__card {
+      width: 100%;
+      max-width: 450px;
+      height: 250px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    &__title {
+      font-size: 37px;
+      margin-bottom: 20px;
+    }
+
+    &__card-info {
+      width: 80%;
+    }
+
+    &__card-title {
+      font-size: 50px;
+    }
+
+    &__card-text {
+      font-size: 25px;
+    }
+  }
+
+  @media all and (max-width: 550px) {
+    &__card-info {
+      width: auto;
+    }
+
+    &__card-title {
+      font-size: 40px;
+    }
+
+    &__card-text {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    padding-bottom: 100px;
+
+    &__card {
+      width: 100%;
+      max-width: 300px;
+      height: 180px;
+    }
+
+    &__card-title {
+      font-size: 30px;
+    }
+
+    &__card-text {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    &__card-button {
+      font-size: 14px;
+    }
+  }
+
+  @media all and (max-width: 360px) {
+    &__card {
+      max-width: 280px;
+      height: 200px;
+    }
+
+    padding-bottom: 80px;
+  }
+}

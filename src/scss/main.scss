@@ -1,0 +1,41 @@
+// common
+@import "common/reset";
+@import "common/fonts";
+@import "common/extends";
+@import "common/vars";
+@import "common/global";
+
+// components
+@import "components/Modal";
+
+// Header
+@import "blocks/Header/Header";
+@import "blocks/Header/Nav";
+
+// BurgerMenu
+@import "blocks/BurgerMenu/BurgerMenu.scss";
+
+// About
+@import "blocks/About/About";
+
+// Modals
+@import "blocks/Modals/AboutModal";
+@import "blocks/Modals/WorkModalBody.scss";
+
+// Works
+@import "blocks/Works/Works.scss";
+
+// Skills
+@import "blocks/Skills/Skills.scss";
+
+// Contacts
+@import "blocks/Contacts/Contacts.scss";
+
+// Footer
+@import "blocks/Footer/Footer.scss";
+
+// Experience
+@import "blocks/Experience/Experience.scss";
+
+// Menu
+@import "blocks/Menu/Menu.scss";

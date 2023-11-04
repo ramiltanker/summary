@@ -1,0 +1,222 @@
+@keyframes dots-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.skills {
+  width: 100%;
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 700;
+    background-image: url(../../../assets/images/bg-font.jpg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 50px;
+    @extend %sfuiDisplay-400;
+  }
+
+  &__cards-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 20px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    flex-wrap: wrap;
+    justify-items: center;
+    align-items: center;
+  }
+
+  &__card {
+    display: grid;
+    grid-template-rows: 100px auto 30px;
+    background: #222;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+    height: 100%;
+    padding: 40px 20px 30px;
+  }
+
+  &__image-container {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border: 1px solid #666;
+    font-size: 50px;
+    background: transparent;
+    box-sizing: content-box;
+    border-radius: 50%;
+    color: #ddd;
+    margin: auto;
+  }
+
+  &__card-image {
+    position: absolute;
+  }
+
+  &__dots-container {
+    width: 100%;
+    height: 100%;
+    left: 56%;
+    top: 8%;
+    animation: dots-rotate 1200ms linear infinite;
+    animation-play-state: paused;
+  }
+
+  &__dots-container-rotate {
+    animation-play-state: running;
+  }
+
+  &__dot-one {
+    width: 15px;
+    height: 15px;
+    background: #666;
+    border-radius: 50%;
+    left: 15px;
+    top: 0;
+    position: relative;
+  }
+
+  &__dot-two {
+    right: -70px;
+    left: auto;
+    top: auto;
+    bottom: -70px;
+    width: 15px;
+    height: 15px;
+    background: #666;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  &__card-image-opacity {
+    opacity: 0.3;
+    transition: all 200ms linear;
+  }
+
+  &__card-info {
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__card-info-unactive {
+    visibility: hidden;
+    animation: card-info-hide 200ms linear;
+  }
+
+  &__card-info-active {
+    animation: card-info-show 200ms linear;
+  }
+
+  &__card-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #fff;
+    margin-top: 30px;
+    font-family: Berkshire Swash, cursive;
+  }
+
+  &__card-text {
+    @extend %sfuiDisplay-400;
+    color: #999;
+    line-height: 1.7em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__card-button {
+    justify-self: center;
+    cursor: pointer;
+    border: none;
+    color: hsla(0, 0%, 100%, 0.6);
+    transition: color 200ms linear;
+    font-size: 0.875rem;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: none;
+  }
+
+  &__card-button:hover {
+    color: #fff;
+    transition: color 200ms linear;
+  }
+
+  @media all and (max-width: 1150px) {
+    padding-bottom: 150px;
+
+    &__cards-container {
+      max-width: 1100px;
+      margin: 0 20px;
+      gap: 30px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media all and (max-width: 820px) {
+    padding-bottom: 100px;
+
+    &__title {
+      font-size: 2.2rem;
+    }
+
+    &__cards-container {
+      margin: 0 20px;
+      gap: 30px;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media all and (max-width: 400px) {
+    &__card-title {
+      font-size: 23px;
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+
+    &__card-text {
+      font-size: 15px;
+      line-height: 1.7em;
+      margin-bottom: 20px;
+    }
+
+    &__card-button {
+      font-size: 0.675rem;
+    }
+  }
+
+  @media all and (max-width: 375px) {
+    &__card {
+      max-width: 300px;
+      height: 100%;
+      padding: 40px 20px 30px;
+    }
+  }
+}

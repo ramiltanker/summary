@@ -1,0 +1,116 @@
+body {
+  @extend %heboo-400;
+  font-size: 16px;
+
+  background-color: $mainColor;
+  color: #ffffff;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    background-color: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 3px;
+    background-color: #888888;
+  }
+}
+
+.wrapper {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+
+    height: 100%;
+    width: 1px;
+
+    background-color: $separateColor;
+  }
+
+  &::before {
+    left: 15%;
+  }
+
+  &::after {
+    right: 15%;
+  }
+}
+
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+
+  max-width: 1170px;
+  width: 100%;
+  height: 100%;
+}
+
+.button {
+  position: relative;
+  z-index: 1;
+
+  padding: 12px 0;
+
+  display: block;
+  max-width: 170px;
+  width: 100%;
+
+  @extend %heboo-400;
+  font-size: 1.07rem;
+  letter-spacing: 1px;
+
+  border: 1px solid $separateColor;
+  border-radius: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: transparent;
+
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #dddddd;
+    color: #333333;
+  }
+}
+
+.line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+
+  width: 1px;
+  height: 100%;
+
+  background-color: $separateColor;
+}
+
+@media all and (max-width: 1700px) {
+  .wrapper {
+    &::before {
+      left: 100px;
+    }
+
+    &::after {
+      right: 100px;
+    }
+  }
+}
+
+@media all and (max-width: 1340px) {
+  .wrapper {
+    &::before {
+      left: 10px;
+    }
+
+    &::after {
+      right: 10px;
+    }
+  }
+}
